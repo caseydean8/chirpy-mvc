@@ -21,9 +21,13 @@ module.exports = function(app) {
     });
   });
 
-  // app.post('/api/chirps', (req, res) => {
-  //   connection.query('insert into (author, chirp) values (?, ?)', )
-  // })
+  app.post('/api/chirps', (req, res) => {
+    connection.query('insert into chirps (author, chirp, created_at) values (?,?,?)', [req.body.author, req.body.chirp, req.body.created_at], (err, data) => {
+      if (err) console.log(err);
+      console.log('Chirp sent to database');
+      res.end();
+    })
+  })
   
 
   // Add a chirp
