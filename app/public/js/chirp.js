@@ -1,5 +1,5 @@
 /* global moment */
-// * Modify the chirps.js file so that the page interacts with the database.
+
 // When the page loads, grab and display all of our chirps
 $.get("/api/all", function (data) {
   console.log("jquery get");
@@ -30,12 +30,11 @@ $("#chirp-submit").on("click", function (event) {
     created_at: moment().format("YYYY-MM-DD HH:mm:ss"),
   };
 
-  console.log(newChirp);
-
   // Send an AJAX POST-request with jQuery
   $.post("/api/chirps", newChirp)
     // On success, run the following code
     .then(function () {
+      // this can all be replaced with a location reload and the GET route above will populate for dryer code, but this method displays the chirp instantly
       var row = $("<div>");
       row.addClass("chirp");
 
