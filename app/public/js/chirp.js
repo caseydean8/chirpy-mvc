@@ -1,8 +1,8 @@
 /* global moment */
-
+// * Modify the chirps.js file so that the page interacts with the database.
 // When the page loads, grab and display all of our chirps
 $.get("/api/all", function(data) {
-
+  console.log('jquery get');
   if (data.length !== 0) {
 
     for (var i = 0; i < data.length; i++) {
